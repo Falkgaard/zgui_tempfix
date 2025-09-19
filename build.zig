@@ -121,6 +121,8 @@ pub fn build(b: *std.Build) void {
         }
     }
 
+    imgui.root_module.addCMacro("IMGUI_IMPL_API", "extern \"C\""); // temp fix
+
     b.installArtifact(imgui);
 
     const emscripten = target.result.os.tag == .emscripten;
